@@ -21,7 +21,6 @@ public abstract class AsyncTaskLoaderEx<T> extends AsyncTaskLoader<T> {
 
     @Override
     protected void onStartLoading() {
-
         //this part should be removed from support library 27.1.0 :
          if (hasResult && mData !=null){
              deliverResult(mData);
@@ -34,7 +33,6 @@ public abstract class AsyncTaskLoaderEx<T> extends AsyncTaskLoader<T> {
 
     @Override
     public void deliverResult(final T data) {
-        
         mData = data;
         hasResult = true;
         super.deliverResult(data);
