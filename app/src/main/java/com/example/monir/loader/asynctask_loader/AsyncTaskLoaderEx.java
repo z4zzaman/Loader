@@ -21,15 +21,20 @@ public abstract class AsyncTaskLoaderEx<T> extends AsyncTaskLoader<T> {
 
     @Override
     protected void onStartLoading() {
-        if (takeContentChanged())
-            forceLoad();
+
         //this part should be removed from support library 27.1.0 :
-        //else if (hasResult)
-        //    deliverResult(mData);
+         if (hasResult && mData !=null){
+             deliverResult(mData);
+         }
+          else if (takeContentChanged()){
+              forceLoad();
+             }
+
     }
 
     @Override
     public void deliverResult(final T data) {
+        
         mData = data;
         hasResult = true;
         super.deliverResult(data);

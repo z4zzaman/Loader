@@ -20,7 +20,7 @@ public class AsyncTaskLoaderActivity extends FragmentActivity implements LoaderM
         empAdapter = new EmployeeAdapter(this, new ArrayList<Employee>());
         ListView employeeListView = (ListView) findViewById(R.id.employees);
         employeeListView.setAdapter(empAdapter);
-        getSupportLoaderManager().initLoader(1, null, this).forceLoad();
+        getSupportLoaderManager().initLoader(1, null, this);
     }
     @Override
     public Loader<List<Employee>> onCreateLoader(int id, Bundle args) {
